@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+File.expand_path('../../Gemfile', __FILE__).tap do |file|
+  require 'bundler/setup' if File.exists?(file)
+end
+
+require 'docker_event_handler'
+
+DockerEventHandler::RunLoop.([DockerEventHandler::Strategy::Log.new])
